@@ -13,4 +13,4 @@ class PHMeasurement(models.Model):
     measure_time = models.DateTimeField()
     
     def __str__(self):
-        return self.measurement.str()
+        return str(self.measurement)
