@@ -18,5 +18,5 @@ class PHMeasurement(models.Model):
 class AquariumImage(models.Model):
     aquarium = models.ForeignKey(Aquarium, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='static')
-    image_path = models.CharField(max_length=1024)
+#    image_path = models.CharField(max_length=1024)
     
