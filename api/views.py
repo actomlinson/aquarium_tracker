@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from api.serializers import UserSerializer, GroupSerializer, AquariumSerializer
-from core.models import Aquarium
+from api.serializers import UserSerializer, GroupSerializer, AquariumSerializer, PHMeasurementSerializer
+from core.models import Aquarium, PHMeasurement
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -24,3 +24,11 @@ class AquariumViewSet(viewsets.ModelViewSet):
     """
     queryset = Aquarium.objects.all()
     serializer_class = AquariumSerializer
+
+class PHMeasurementViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = PHMeasurement.objects.all()
+    serializer_class = PHMeasurementSerializer
+

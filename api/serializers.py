@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from core.models import Aquarium
+from core.models import Aquarium, PHMeasurement
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -18,3 +18,8 @@ class AquariumSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Aquarium
         fields = ['size', 'nickname']
+
+class PHMeasurementSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = PHMeasurement
+        fields = ['aquarium', 'measurement', 'measure_time']
