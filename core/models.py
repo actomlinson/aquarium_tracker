@@ -5,7 +5,7 @@ class Aquarium(models.Model):
     aq_id = models.IntegerField()
     size = models.DecimalField(max_digits=5, decimal_places=2)
     nickname = models.CharField(max_length=50)
-    startDate = models.DateTimeField(auto_now_add=True)
+    startDateStr = models.DateTimeField()
     #startDateLong = 0
     
     #def __init__(self, aq_id, size, nickname, startDate, startDateLong):
@@ -21,11 +21,11 @@ class Parameter(models.Model):
     name = models.CharField(max_length=50)
     units = models.CharField(max_length=50)
     
-    
 class Measurement(models.Model):
     measure_id = models.IntegerField()
     param_id = models.ForeignKey(Parameter, on_delete=models.CASCADE)
-    value = models.FloatField()
+    value = models.FloatField(null=True,blank=True)
+    time = models.BigIntegerField()
     
 class PHMeasurement(models.Model):
     aquarium = models.ForeignKey(Aquarium, on_delete=models.CASCADE)
