@@ -2,11 +2,10 @@ from django.db import models
 from django.utils import timezone
 
 class Aquarium(models.Model):
-    aq_id = models.IntegerField()
+    aq_id = models.IntegerField(primary_key=True)
     size = models.DecimalField(max_digits=5, decimal_places=2)
     nickname = models.CharField(max_length=50)
-    startDateStr = models.DateTimeField()
-    #startDateLong = 0
+    startDate = models.IntegerField()
     
     #def __init__(self, aq_id, size, nickname, startDate, startDateLong):
         #startDateLong = startDate.timestamp()
@@ -15,14 +14,14 @@ class Aquarium(models.Model):
         return self.nickname
     
 class Parameter(models.Model):
-    param_id = models.IntegerField()
+    param_id = models.IntegerField(primary_key=True)
     p_order = models.IntegerField()
     aq_id = models.ForeignKey(Aquarium, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     units = models.CharField(max_length=50)
     
 class Measurement(models.Model):
-    measure_id = models.IntegerField()
+    measure_id = models.IntegerField(primary_key=True)
     param_id = models.ForeignKey(Parameter, on_delete=models.CASCADE)
     value = models.FloatField(null=True,blank=True)
     time = models.BigIntegerField()
@@ -42,7 +41,7 @@ class AquariumImage(models.Model):
 #    image_path = models.CharField(max_length=1024)
 
 class Reminder(models.Model):
-    reminder_id = models.IntegerField()
+    reminder_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     repeatable = models.BooleanField()
     repeat_time = models.IntegerField()

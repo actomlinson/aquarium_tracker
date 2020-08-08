@@ -17,8 +17,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class AquariumSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Aquarium
-        #date = model.startDate.timestamp()
-        fields = ['aq_id', 'size', 'nickname', "startDateStr"]
+        fields = ['aq_id', 'size', 'nickname', 'startDate']
         
 class ParameterSerializer(serializers.HyperlinkedModelSerializer):    
 #    aq = serializers.HyperlinkedIdentityField(view_name='aquarium-detail', read_only=False)
