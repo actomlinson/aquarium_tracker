@@ -7,6 +7,9 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'aquariums', views.AquariumViewSet)
+router.register(r'phmeasurements', views.PHMeasurementViewSet)
+router.register(r'measurements', views.MeasurementViewSet)
+router.register(r'parameters', views.ParameterViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

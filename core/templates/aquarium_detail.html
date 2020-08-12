@@ -1,9 +1,14 @@
 <h1>{{ aquarium.nickname }}</h1>
 {% load static %} 
-<img src="{% static 'marineland_example_hvCpGZM.jpg' %}"/>
-{{static}}
-<!--<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
+<!-- <img src="{% static 'marineland_example_hvCpGZM.jpg' %}"/> -->
+
+{% for im in aquarium.aquariumimage_set.all %}
+<!--     <img src="{% static im.image.url %}"/> -->
+    <img src ="{{ im.image.url }}" width = "400" height = "500"/>
 {% endfor %}
-</ul>-->
+
+<ul>
+{% for ph in aquarium.phmeasurement_set.all %}
+    <li>{{ ph.measurement }}</li>
+{% endfor %}
+</ul>
